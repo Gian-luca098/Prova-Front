@@ -1,7 +1,7 @@
 {
   "agendamentos": [
     {
-      "id": 1,
+      "id": "1",
       "clienteNome": "Carlos Eduardo Souza",
       "servico": "Corte + Barba",
       "data": "2026-05-28",
@@ -10,7 +10,7 @@
       "status": "confirmado"
     },
     {
-      "id": 2,
+      "id": "2",
       "clienteNome": "Marcos Antônio Lima",
       "servico": "Corte Degradê",
       "data": "2026-05-28",
@@ -19,7 +19,7 @@
       "status": "pendente"
     },
     {
-      "id": 3,
+      "id": "3",
       "clienteNome": "Felipe Rodrigues",
       "servico": "Barba",
       "data": "2026-05-28",
@@ -28,7 +28,7 @@
       "status": "confirmado"
     },
     {
-      "id": 4,
+      "id": "4",
       "clienteNome": "Bruno Henrique Costa",
       "servico": "Corte Simples",
       "data": "2026-05-28",
@@ -37,7 +37,7 @@
       "status": "cancelado"
     },
     {
-      "id": 5,
+      "id": "5",
       "clienteNome": "Diego Ferreira",
       "servico": "Corte + Barba",
       "data": "2026-05-28",
@@ -45,5 +45,7 @@
       "barbeiro": "Rafael",
       "status": "pendente"
     }
-  ]
+   
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

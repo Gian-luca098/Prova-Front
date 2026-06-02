@@ -1,20 +1,24 @@
 <template>
   <div class="container">
     <h2 class="mb-4">📅 Agendamentos do Dia</h2>
+  <h1>Site para  Agendamentos de barbearia</h1>
+  <nav>
+    <RouterLink to="/cadastro" class="btn btn-primary mt-3">Cadastrar Agendamento</RouterLink>
+  </nav>
+  <main>
+    <RouterView />
+  </main>
+<br>
 
-    <!-- TODO
-        Criar um router link para ir para tela de cadastro
-        https://router.vuejs.org/guide/#App-vue
-    -->
-
-    <!-- TODO [CRITÉRIO 4]:
-      Use v-for para percorrer a lista de agendamentos e renderizar
-      um componente AgendamentoCard para cada item.
-      Não esqueça de passar o agendamento como prop e usar :key.
-      https://vuejs.org/guide/essentials/list.html#v-for
-      https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key
-    -->
-
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col" v-for="agendamento in agendamentos" :key="agendamento.id">
+        <!-- Passa o agendamento (com clienteNome e servico) via prop -->
+        <AgendamentoCard :agendamento="agendamento" />
+        
+        <StatusBadge :status="agendamento.status" />
+        
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,17 +26,17 @@
 import { ref, onMounted } from 'vue'
 import AgendamentoCard from '../components/AgendamentoCard.vue'
 import type Agendamento from '../interfaces/Agendamento'
-import { listarAgendamentos, criarAgendamento } from '../services/agendamentoService'
+import { listarAgendamentos, criarAgendamentos } from '../services/agendamentoService'
 
 // TODO [CRITÉRIO 3]:
 // Crie uma variável reativa (ref) para armazenar a lista de agendamentos.
 
-
+const agendamentos = ref<Agendamento[]>([])
 // TODO [CRITÉRIO 3 e 8]:
 // Use onMounted para chamar a função que busca os agendamentos da API
 // assim que a tela for carregada.
 async function buscarAgendamentos() {
-    
+  agendamentos.value = await listarAgendamentos()
 }
 
 onMounted(buscarAgendamentos)

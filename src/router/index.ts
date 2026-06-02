@@ -17,8 +17,23 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/',
+      component:homeView
+    },
+    {
+      path: '/agendamentos/:id',
+      component: detalhesView
+    },
+    {
+      path: '/cadastro',
+      component: cadastroView
+    }
 
   ],
 })
+import homeView from '../views/HomeView.vue'
+import detalhesView from '../views/DetalhesView.vue'
+import cadastroView from '../views/CadastroView.vue'
 
 export default router
